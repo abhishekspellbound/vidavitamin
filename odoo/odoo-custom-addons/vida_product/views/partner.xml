@@ -1,0 +1,43 @@
+<odoo>
+    <record model="ir.ui.view" id="vida_product.customer_form">
+        <field name="name">vida_product customer form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="VIDAVitamins Customer">
+                    <group>
+                        <field name="first_name"/>
+                        <field name="last_name"/>
+                        <field name="date_of_birth"/>
+                        <field name="weight"/>
+                        <field name="height"/>
+                        <field name="gender"/>
+                    </group>
+                    <group string="User IDs (ATTENTION: Do not change without guidance)">
+                        <field name="vida_user_id"/>
+                        <field name="stripe_customer_id"/>
+                        <field name="stripe_subscription_id"/>
+                        <field name="facebook_ref"/>
+                        <field name="instagram_ref"/>
+                        <field name="twitter_ref"/>
+                        <field name="apple_ref"/>
+                        <field name="google_ref"/>
+                        <field name="openid_ref"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="vida_product.customer_search">
+        <field name="name">vida_product customer search</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <search>
+                <field name="stripe_customer_id" />
+            </search>
+        </field>
+    </record>
+</odoo>

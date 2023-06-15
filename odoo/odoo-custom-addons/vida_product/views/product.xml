@@ -1,0 +1,91 @@
+<odoo>
+    <record model="ir.ui.view" id="vida_product.form">
+        <field name="name">vida_product form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="VIDAVitamins Basic">
+                    <group>
+                        <group>
+                            <field name="product_id"/>
+                            <field name="medical_name"/>
+                            <field name="category_id"/>
+                            <field name="dosage"/>
+                            <field name="icon"/>
+                            <field name="image"/>
+                            <field name="hero_image"/>
+                        </group>
+                        <group>
+                            <field name="stripe_product_id" readonly="1"/>
+                            <field name="stripe_price_id" readonly="1"/>
+                            <field name="is_non_gmo"/>
+                            <field name="is_gluten_free"/>
+                            <field name="is_vegan"/>
+                            <field name="is_vegetarian"/>
+                        </group>
+                    </group>
+                    <label for="health_goals" />
+                    <field name="health_goals" />
+                </page>
+                <page string="VIDAVitamins Descriptions">
+                    <group string="Short Description - English">
+                        <field name="tagline_en"/>
+                        <field name="description_line_1_en"/>
+                        <field name="description_line_2_en"/>
+                        <field name="description_line_3_en"/>
+                        <field name="description_line_4_en"/>
+                    </group>
+                    <group string="Short Description - Arabic">
+                        <field name="tagline_ar"/>
+                        <field name="description_line_1_ar"/>
+                        <field name="description_line_2_ar"/>
+                        <field name="description_line_3_ar"/>
+                        <field name="description_line_4_ar"/>
+                    </group>
+                    <group string="Long Description">
+                        <field name="description_en"/>
+                        <field name="description_ar"/>
+                    </group>
+                </page>
+                <page string="VIDA Product Details">
+                    <group string="Product Details - English">
+                        <field name="suggested_use_en" />
+                        <field name="ingredients_en" />
+                        <field name="benefits_en" />
+                    </group>
+                    <group string="Product Details - Arabic">
+                        <field name="suggested_use_ar" />
+                        <field name="ingredients_ar" />
+                        <field name="benefits_ar" />
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="vida_product.search">
+        <field name="name">vida_product search</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_id" />
+                <field name="stripe_product_id" />
+                <field name="category_id" />
+            </search>
+        </field>
+    </record>
+
+    <data noupdate="1">
+        <record model="base.automation" id="vida_product.product_updated_action_auto">
+            <field name="name">VIDA Product Updated</field>
+            <field name="model_id" ref="model_product_template"/>
+            <field name="model_name">product.template</field>
+            <field name="state">code</field>
+            <field name="code">record.product_changed()</field>
+            <field name="trigger">on_write</field>
+            <field name="active">True</field>
+        </record>
+    </data>
+</odoo>

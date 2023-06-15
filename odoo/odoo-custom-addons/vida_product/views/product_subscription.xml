@@ -1,0 +1,90 @@
+<odoo>
+    <record model="ir.ui.view" id="vida_product.subscription_list">
+        <field name="name">Product Subscriptions</field>
+        <field name="model">vida_product.product_subscription</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="customer"/>
+                <field name="next_cycle_date"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="vida_product.subscription_form">
+        <field name="name">Product Subscription</field>
+        <field name="model">vida_product.product_subscription</field>
+        <field name="arch" type="xml">
+            <form string="Vida Product Subscription Form">
+                <sheet>
+                    <group>
+                        <field name="customer" readonly="1"/>
+                        <field name="created_date" readonly="1"/>
+                        <field name="prev_cycle_date" readonly="1"/>
+                        <field name="next_cycle_date" readonly="1"/>
+                        <field name="stripe_customer_id" readonly="1"/>
+                        <field name="stripe_subscription_id" readonly="1"/>
+                    </group>
+                    <label for="products" string="Products" />
+                    <field name="products">
+                        <tree string="Products">
+                            <field name="name"/>
+                            <field name="product_id"/>
+                            <field name="default_code"/>
+                            <field name="stripe_product_id"/>
+                        </tree>
+                    </field>
+                    <label for="orders" string="Orders" />
+                    <field name="orders">
+                        <tree string="Orders">
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="state"/>
+                            <field name="amount_total"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="vida_product.subscription_search">
+        <field name="name">Product Subscription Search</field>
+        <field name="model">vida_product.product_subscription</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="customer"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="vida_product.subscription_action_window">
+        <field name="name">Product Subscriptions</field>
+        <field name="res_model">vida_product.product_subscription</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first product subscription
+            </p>
+        </field>
+    </record>
+
+    <data noupdate="1">
+        <record id="vida_product_subscriptions_nightly" model="ir.cron">
+            <field name="name">VIDA Subscriptions Nightly</field>
+            <field name="model_id" ref="model_vida_product_product_subscription"/>
+            <field name="state">code</field>
+            <field name="code">model.trigger_cron()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name='interval_number'>1</field>
+            <field name='interval_type'>days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="priority" eval="5" />
+            <field name="nextcall" eval="(datetime.now().date() + timedelta(days=1)).strftime('%Y-%m-%d 00:00:00')" />
+        </record>
+    </data>
+
+    <!-- Menus -->
+    <menuitem name="Products Subscriptions" id="vida_product.menu_vida_product_subscription" parent="sale.product_menu_catalog"
+              action="vida_product.subscription_action_window"/>
+
+</odoo>

@@ -1,0 +1,79 @@
+<odoo>
+    <record model="ir.ui.view" id="vida_product.category_list">
+        <field name="name">Product Categories</field>
+        <field name="model">vida_product.product_category</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="category_id"/>
+                <field name="parent_category_id"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="vida_product.category_form">
+        <field name="name">Product Category</field>
+        <field name="model">vida_product.product_category</field>
+        <field name="arch" type="xml">
+            <form string="Vida Product Category Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="category_id"/>
+                        <field name="parent_category_id"/>
+                        <field name="image"/>
+                    </group>
+                    <group string="Description">
+                        <field name="description_en" string="English"/>
+                        <field name="description_ar" string="Arabic"/>
+                    </group>
+                    <label for="products" string="Products" />
+                    <field name="products">
+                        <tree string="Products">
+                            <field name="name"/>
+                            <field name="product_id"/>
+                            <field name="default_code"/>
+                            <field name="stripe_product_id"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="vida_product.category_search">
+        <field name="name">Product Category Search</field>
+        <field name="model">vida_product.product_category</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="category_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="vida_product.category_action_window">
+        <field name="name">Product Categories</field>
+        <field name="res_model">vida_product.product_category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first product category
+            </p>
+        </field>
+    </record>
+<!--    <data noupdate="1">-->
+<!--        <record model="base.automation" id="vida_product.product_category_changed_action_auto">-->
+<!--            <field name="name">Product Category Changed Automatic Action</field>-->
+<!--            <field name="model_id" ref="model_vida_product_product_category"/>-->
+<!--            <field name="model_name">vida_product.product_category</field>-->
+<!--            <field name="state">code</field>-->
+<!--            <field name="code">record.product_category_changed()</field>-->
+<!--            <field name="trigger">on_create_or_write</field>-->
+<!--            <field name="active">True</field>-->
+<!--        </record>-->
+<!--    </data>-->
+
+    <!-- Menus -->
+    <menuitem name="Products Category" id="vida_product.menu_vida_product_2" parent="sale.product_menu_catalog"
+              action="vida_product.category_action_window"/>
+
+</odoo>

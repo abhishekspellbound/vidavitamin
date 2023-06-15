@@ -1,0 +1,40 @@
+<odoo>
+    <data noupdate="1">
+<!--           <record id="P0001" model="vida_product.vida_product">-->
+<!--             <field name="name">Vitamin C</field>-->
+<!--             <field name="product_id">P0001</field>-->
+<!--             <field name="price">25.88</field>-->
+<!--             <field name="dosage">1000 IU</field>-->
+<!--             <field name="stripe_product_id">stripe_prod_aaabbbcccddd</field>-->
+<!--             <field name="stripe_price_id">stripe_price_aaabbbcccddd</field>-->
+<!--             <field name="tagline_en">Tagline EN</field>-->
+<!--             <field name="tagline_ar">Tagline AR</field>-->
+<!--             <field name="description_en">Description EN</field>-->
+<!--             <field name="description_ar">Description AR</field>-->
+<!--           </record>-->
+<!--           <record id="P0002" model="vida_product.vida_product">-->
+<!--             <field name="name">Vitamin B1</field>-->
+<!--             <field name="product_id">P0002</field>-->
+<!--             <field name="price">21.50</field>-->
+<!--             <field name="dosage">1.2 mg</field>-->
+<!--             <field name="stripe_product_id">stripe_prod_aaabbbcccddd</field>-->
+<!--             <field name="stripe_price_id">stripe_price_aaabbbcccddd</field>-->
+<!--           </record>-->
+<!--           <record id="P0003" model="vida_product.vida_product">-->
+<!--             <field name="name">Vitamin B3</field>-->
+<!--             <field name="product_id">P0003</field>-->
+<!--             <field name="price">125</field>-->
+<!--             <field name="dosage">250 ug</field>-->
+<!--             <field name="stripe_product_id">stripe_prod_aaabbbcccddd</field>-->
+<!--             <field name="stripe_price_id">stripe_price_aaabbbcccddd</field>-->
+<!--           </record>-->
+<!--           <record id="P0004" model="vida_product.vida_product">-->
+<!--             <field name="name">Vitamin B6</field>-->
+<!--             <field name="product_id">P0004</field>-->
+<!--             <field name="price">45.80</field>-->
+<!--             <field name="dosage">1 mg</field>-->
+<!--             <field name="stripe_product_id">stripe_prod_aaabbbcccddd</field>-->
+<!--             <field name="stripe_price_id">stripe_price_aaabbbcccddd</field>-->
+<!--           </record>-->
+    </data>
+</odoo>

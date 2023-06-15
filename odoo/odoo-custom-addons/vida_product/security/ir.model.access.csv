@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vida_product_product_category,vida_product.product_category,model_vida_product_product_category,base.group_system,1,1,1,1
+access_vida_product_health_goal,vida_product.vida_product,model_vida_product_health_goal,base.group_system,1,1,1,1
+access_vida_product_subscription,vida_product.product_subscription,model_vida_product_product_subscription,base.group_system,1,1,1,1

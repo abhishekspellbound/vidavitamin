@@ -1,0 +1,24 @@
+<odoo>
+    <record model="ir.ui.view" id="vida_product.settings_form">
+        <field name="name">VIDA Product Settings</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="10" />
+        <field name="inherit_id" ref="sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='no_edit_order']" position="after">
+                <div class="col-12 col-lg-6 o_setting_box" id="vida_product_options">
+                    <div class="o_setting_left_pane">
+                        <field name="force_subscription_reset"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="force_subscription_reset"/><br />
+                        <label for="api_base_url"/>
+                        <field name="api_base_url"/><br />
+                        <label for="subscription_days"/>
+                        <field name="subscription_days"/>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
